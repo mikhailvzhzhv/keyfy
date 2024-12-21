@@ -1,22 +1,26 @@
 package main
 
 import (
-	"fmt"
-	"log"
-
 	"github.com/go-vgo/robotgo"
-	"github.com/go-vgo/robotgo/clipboard"
+	"github.com/mikhailvzhzhv/keyfy/pkg/mapper"
 )
 
 func main() {
 
-	robotgo.KeyTap("c", "control")
+	robotgo.KeyTap("c", "ctrl")
+	robotgo.MilliSleep(50)
 
-	text, err := clipboard.ReadAll()
+	text, err := robotgo.ReadAll()
 	if err != nil {
-		log.Println("clipboard read all error: ", err)
 		return
 	}
 
-	fmt.Println(translator.Translate(text))
+	mapped_text := mapper.Mapkeys(text)
+	err = robotgo.WriteAll(mapped_text)
+	if err != nil {
+		return
+	}
+
+	robotgo.MilliSleep(50)
+	robotgo.KeyTap("v", "ctrl")
 }
