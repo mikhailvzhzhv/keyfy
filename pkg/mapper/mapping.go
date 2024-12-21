@@ -1,26 +1,7 @@
 package mapper
 
-func Mapkeys(text string) string {
-	text_len := len(text)
-	mapped_string := make([]rune, text_len)
-
-	for i, char := range text {
-		mapped_string[i] = mapkey(char)
-	}
-
-	return string(mapped_string)
-}
-
-func mapkey(s rune) rune {
-	if val, ok := mapping[s]; ok {
-		return val
-	}
-
-	return s
-}
-
 var mapping = map[rune]rune{
-	// Английские -> Русские
+	// en -> ru
 	'q': 'й', 'w': 'ц', 'e': 'у', 'r': 'к', 't': 'е',
 	'y': 'н', 'u': 'г', 'i': 'ш', 'o': 'щ', 'p': 'з',
 	'[': 'х', ']': 'ъ', 'a': 'ф', 's': 'ы', 'd': 'в',
@@ -29,7 +10,7 @@ var mapping = map[rune]rune{
 	'c': 'с', 'v': 'м', 'b': 'и', 'n': 'т', 'm': 'ь',
 	',': 'б', '.': 'ю',
 
-	// Заглавные Английские -> Русские
+	// upper en -> ru
 	'Q': 'Й', 'W': 'Ц', 'E': 'У', 'R': 'К', 'T': 'Е',
 	'Y': 'Н', 'U': 'Г', 'I': 'Ш', 'O': 'Щ', 'P': 'З',
 	'{': 'Х', '}': 'Ъ', 'A': 'Ф', 'S': 'Ы', 'D': 'В',
@@ -38,7 +19,7 @@ var mapping = map[rune]rune{
 	'C': 'С', 'V': 'М', 'B': 'И', 'N': 'Т', 'M': 'Ь',
 	'<': 'Б', '>': 'Ю',
 
-	// Русские -> Английские
+	// ru -> en
 	'й': 'q', 'ц': 'w', 'у': 'e', 'к': 'r', 'е': 't',
 	'н': 'y', 'г': 'u', 'ш': 'i', 'щ': 'o', 'з': 'p',
 	'х': '[', 'ъ': ']', 'ф': 'a', 'ы': 's', 'в': 'd',
@@ -47,7 +28,7 @@ var mapping = map[rune]rune{
 	'с': 'c', 'м': 'v', 'и': 'b', 'т': 'n', 'ь': 'm',
 	'б': ',', 'ю': '.',
 
-	// Заглавные Русские -> Английские
+	// upper ru -> en
 	'Й': 'Q', 'Ц': 'W', 'У': 'E', 'К': 'R', 'Е': 'T',
 	'Н': 'Y', 'Г': 'U', 'Ш': 'I', 'Щ': 'O', 'З': 'P',
 	'Х': '{', 'Ъ': '}', 'Ф': 'A', 'Ы': 'S', 'В': 'D',
