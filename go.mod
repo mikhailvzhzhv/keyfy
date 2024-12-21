@@ -4,7 +4,7 @@ go 1.22.4
 
 require (
 	github.com/go-vgo/robotgo v0.110.5
-	github.com/mikhailvzhzhv/keyfy/pkg/mapper v0.0.0-20241221092453-8e02e173cde5
+	github.com/mikhailvzhzhv/keyfy/pkg/mapper v0.0.0-20241221112750-cebbb9263d26
 )
 
 require (
